@@ -1,0 +1,9 @@
+name: FactionsChat
+main: net.testusuke.open.factionschat.Main
+version: 1.0
+author: testusuke
+depend: [Factions]
+commands:
+  fc:
+    permission: factionschat.general
+    permission-message: you don't have permission. factionschat.general
