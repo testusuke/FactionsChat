@@ -62,7 +62,7 @@ public class FactionData {
         for(Player player : playerFactionMap.keySet()){
             Faction faction = playerFactionMap.get(player);
             if(!faction.getId().equals(id))continue;
-            player.sendMessage("§a[Faction]§f" + fromPlayer.getDisplayName() + " >>> " + message);
+            player.sendMessage("§a[Faction]§f" + fromPlayer.getDisplayName() + " >> " + message);
         }
     }
 }

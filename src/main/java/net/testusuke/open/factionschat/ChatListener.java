@@ -1,6 +1,8 @@
 package net.testusuke.open.factionschat;
 
 import com.massivecraft.factions.entity.Faction;
+import net.testusuke.open.factionschat.japanizer.JapanizeType;
+import net.testusuke.open.factionschat.japanizer.Japanizer;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -28,8 +30,11 @@ public class ChatListener implements Listener {
         Faction faction = FactionData.getFaction(player);
         String id = faction.getId();
         //  Send
-        event.setCancelled(true);
+        msg = Japanizer.japanize(msg, JapanizeType.GOOGLE_IME);
+        msg.replace("&","§");
         FactionData.sendMessage(player,id,msg);
+        plugin.getLogger().info("[Faction]" + player.getName() + " >> " + msg);
+        event.setCancelled(true);
     }
 
     //  join
