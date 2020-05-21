@@ -18,7 +18,7 @@ public final class Main extends JavaPlugin {
     //  plugin
     public String pluginName = "CommandHelper";
     //  Version
-    public String version = "1.0.0";
+    public String version = "1.0.1";
 
     @Override
     public void onEnable(){
@@ -36,6 +36,7 @@ public final class Main extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new ChatListener(this),this);
         //  Runnable
         reloadFactionsRunnable();
+        registerChatMode();
     }
 
     @Override
@@ -68,5 +69,13 @@ public final class Main extends JavaPlugin {
                 }
             }
         }.runTaskTimer(this,20,time);
+    }
+
+    private void registerChatMode(){
+        FactionData.clearChatMode();
+        for(Player player : Bukkit.getServer().getOnlinePlayers()){
+            FactionData.setChatMode(player,false);
+            player.sendMessage( prefix + "§a全体チャットです。");
+        }
     }
 }
