@@ -3,8 +3,6 @@ package net.testusuke.open.factionschat;
 import com.massivecraft.factions.entity.Faction;
 import net.testusuke.open.factionschat.japanizer.JapanizeType;
 import net.testusuke.open.factionschat.japanizer.Japanizer;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

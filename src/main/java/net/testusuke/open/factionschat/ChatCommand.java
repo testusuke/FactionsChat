@@ -12,8 +12,8 @@ public class ChatCommand implements CommandExecutor {
 
     }
 
-    private final String permission = "factionschat.general";
-    private final String adminPermission = "factionschat.admin";
+    public static final String permission = "factionschat.general";
+    public static final String adminPermission = "factionschat.admin";
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -68,7 +68,17 @@ public class ChatCommand implements CommandExecutor {
                 player.sendMessage(plugin.prefix + "§aOFFになりました");
                 return true;
             }
-
+            //  SpyChat
+            if(args[0].equalsIgnoreCase("spy")){
+                if(!player.hasPermission(adminPermission))return false;
+                if(!FactionData.adminSpyChat.containsKey(player) || !FactionData.adminSpyChat.get(player)){
+                    FactionData.adminSpyChat.put(player,true);
+                    player.sendMessage(plugin.prefix + "§a有効にしました。");
+                }else {
+                    FactionData.adminSpyChat.put(player,false);
+                    player.sendMessage(plugin.prefix + "§a無効にしました。");
+                }
+            }
             //  Else
             sendHelp(player);
         }

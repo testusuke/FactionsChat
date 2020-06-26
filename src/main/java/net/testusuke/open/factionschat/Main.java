@@ -1,9 +1,7 @@
 package net.testusuke.open.factionschat;
 
-import net.luckperms.api.LuckPerms;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
@@ -16,10 +14,6 @@ public final class Main extends JavaPlugin {
     //  Task
     private BukkitTask task = null;
     private int time = 20* 60;
-
-    //  LuckPerms
-    public static LuckPerms luckPerms = null;
-
 
     //  plugin
     public String pluginName = "CommandHelper";
@@ -43,12 +37,6 @@ public final class Main extends JavaPlugin {
         //  Runnable
         reloadFactionsRunnable();
         registerChatMode();
-
-        //  LuckPerms
-        RegisteredServiceProvider<LuckPerms> provider = Bukkit.getServicesManager().getRegistration(LuckPerms.class);
-        if (provider != null) {
-            luckPerms = provider.getProvider();
-        }
 
     }
 
